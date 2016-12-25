@@ -1,0 +1,4 @@
+default:
+  build: .
+  volumes:
+    - ".:/go/src/github.com/rdsubhas/go-elastictable"
