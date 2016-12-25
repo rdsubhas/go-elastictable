@@ -20,8 +20,8 @@ type ElasticCol struct {
 	index int
 	min int
 	max int
-	weight int
 	width int
+	height int
 }
 
 type ElasticTable struct {
@@ -41,7 +41,7 @@ func NewElasticTable(header []string) *ElasticTable {
 		l, c := runeWidth(v), &e.cols[i]
 		c.index = i
 		c.min, c.max, c.width = l, l, l
-		c.weight = 1
+		c.height = 1
 	}
 	return e
 }
@@ -90,10 +90,10 @@ func (e *ElasticTable) optimizedWidths() ([]int) {
 
 		for i := 0; i < num-1; i++ {
 			curr, next := &e.cols[i], &e.cols[i+1]
-			width := int(math.Ceil(float64(curr.max) / float64(curr.weight + 1)))
+			width := int(math.Ceil(float64(curr.max) / float64(curr.height + 1)))
 			if width >= next.width {
 				maxTot = maxTot - (curr.width - width)
-				curr.weight = curr.weight + 1
+				curr.height = curr.height + 1
 				curr.width = width
 				continue OUTER
 			}
