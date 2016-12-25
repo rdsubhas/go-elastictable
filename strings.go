@@ -1,4 +1,4 @@
-package main
+package elastictable
 
 import (
 	"github.com/tgulacsi/wrap"
