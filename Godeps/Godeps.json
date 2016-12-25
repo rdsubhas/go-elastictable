@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/goeuro/myke",
+	"ImportPath": "github.com/rdsubhas/go-elastictable",
 	"GoVersion": "go1.7",
 	"GodepVersion": "v75",
 	"Packages": [
@@ -7,59 +7,23 @@
 	],
 	"Deps": [
 		{
-			"ImportPath": "github.com/Masterminds/sprig",
-			"Comment": "2.7.0-4-g69011c0",
-			"Rev": "69011c0cd9b4d2e0733c4d9e2c8e2a5a0d0a2f2f"
-		},
-		{
-			"ImportPath": "github.com/aokoli/goutils",
-			"Comment": "1.0.0-1-g9c37978",
-			"Rev": "9c37978a95bd5c709a15883b6242714ea6709e64"
-		},
-		{
-			"ImportPath": "github.com/apex/log",
-			"Rev": "994011249d68d2b3ca735641c1f03686c5c794de"
-		},
-		{
-			"ImportPath": "github.com/apex/log/handlers/cli",
-			"Rev": "994011249d68d2b3ca735641c1f03686c5c794de"
-		},
-		{
 			"ImportPath": "github.com/davecgh/go-spew/spew",
 			"Comment": "v1.1.0",
 			"Rev": "346938d642f2ec3594ed81d874461961cd0faa76"
 		},
 		{
-			"ImportPath": "github.com/ghodss/yaml",
-			"Rev": "bea76d6a4713e18b7f5321a2b020738552def3ea"
-		},
-		{
-			"ImportPath": "github.com/joho/godotenv",
-			"Comment": "v1-10-g4ed1339",
-			"Rev": "4ed13390c0acd2ff4e371e64d8b97c8954138243"
-		},
-		{
-			"ImportPath": "github.com/kardianos/osext",
-			"Rev": "c2c54e542fb797ad986b31721e1baedf214ca413"
+			"ImportPath": "github.com/mattn/go-runewidth",
+			"Comment": "v0.0.1-10-g737072b",
+			"Rev": "737072b4e32b7a5018b4a7125da8d12de90e8045"
 		},
 		{
 			"ImportPath": "github.com/olekukonko/ts",
 			"Rev": "ecf753e7c962639ab5a1fb46f7da627d4c0a04b8"
 		},
 		{
-			"ImportPath": "github.com/pkg/errors",
-			"Comment": "v0.8.0-2-g248dadf",
-			"Rev": "248dadf4e9068a0b3e79f02ed0a610d935de5302"
-		},
-		{
 			"ImportPath": "github.com/pmezard/go-difflib/difflib",
 			"Comment": "v1.0.0",
 			"Rev": "792786c7400a136282c1664665ae0a8db921c6c2"
-		},
-		{
-			"ImportPath": "github.com/satori/go.uuid",
-			"Comment": "v1.1.0-6-gb061729",
-			"Rev": "b061729afc07e77a8aa4fad0a2fd840958f1942a"
 		},
 		{
 			"ImportPath": "github.com/stretchr/testify/assert",
@@ -69,23 +33,6 @@
 		{
 			"ImportPath": "github.com/tgulacsi/wrap",
 			"Rev": "972bd931cfd19b139c8c034927b3ccb7fae8fa0b"
-		},
-		{
-			"ImportPath": "github.com/tidwall/gjson",
-			"Rev": "7afd24f7a27574c6a07a012c2bdbdb80b494dc20"
-		},
-		{
-			"ImportPath": "github.com/tidwall/match",
-			"Rev": "173748da739a410c5b0b813b956f89ff94730b4c"
-		},
-		{
-			"ImportPath": "gopkg.in/urfave/cli.v1",
-			"Comment": "v1.18.1",
-			"Rev": "a14d7d367bc02b1f57d88de97926727f2d936387"
-		},
-		{
-			"ImportPath": "gopkg.in/yaml.v2",
-			"Rev": "a5b47d31c556af34a302ce5d659e6fea44d90de0"
 		}
 	]
 }

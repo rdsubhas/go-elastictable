@@ -2,11 +2,12 @@ package elastictable
 
 import (
 	"github.com/tgulacsi/wrap"
+	"github.com/mattn/go-runewidth"
 	"strings"
 )
 
 func runeWidth(str string) int {
-	return len(str)
+	return runewidth.StringWidth(str)
 }
 
 func wrapString(str string, max int) []string {

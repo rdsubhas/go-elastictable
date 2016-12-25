@@ -38,7 +38,7 @@ func NewElasticTable(header []string) *ElasticTable {
 	}
 
 	for i, v := range header {
-		l, c := len(v), &e.cols[i]
+		l, c := runeWidth(v), &e.cols[i]
 		c.index = i
 		c.min, c.max, c.width = l, l, l
 		c.weight = 1
@@ -49,7 +49,7 @@ func NewElasticTable(header []string) *ElasticTable {
 func (e *ElasticTable) AddRow(row []string) {
 	e.rows = append(e.rows, row)
 	for i, v := range row {
-		l, c := len(v), &e.cols[i]
+		l, c := runeWidth(v), &e.cols[i]
 		if l < c.min {
 			c.min = l
 		}
