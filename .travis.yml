@@ -1,0 +1,11 @@
+language: go
+go_import_path: github.com/rdsubhas/go-elastictable
+go:
+- 1.7
+install:
+- go get -u -v github.com/tools/godep
+- godep restore -v
+script:
+- go test ./...
+notifications:
+  email: false
