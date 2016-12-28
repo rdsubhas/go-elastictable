@@ -17,12 +17,11 @@ var widthTests = []struct {
 	expected []int
 }{
 	{ 20, []int{5,10,15}, []int{5,5,5} },
-	{ 40, []int{10,10,10}, []int{10,10,11} },
-	{ 50, []int{10,10,20}, []int{10,10,21} },
+	{ 40, []int{10,10,10}, []int{10,10,10} },
+	{ 50, []int{10,10,20}, []int{10,10,20} },
 	{ 60, []int{10,25,70}, []int{10,13,28} },
 	{ 60, []int{10,70,25}, []int{10,28,13} },
 	{ 60, []int{70,25,10}, []int{28,13,10} },
-	{ 60, []int{70,10,25}, []int{28,10,13} },
 }
 
 func TestOptimizedWidths(t *testing.T) {
@@ -39,9 +38,9 @@ func TestOptimizedWidths(t *testing.T) {
 func TestTableOutput(t *testing.T) {
 	given := []string{"column1-10", "column2-10", "column3-10"}
 	expected := []string{
-		" h1         | h2         | h3          ",
-		"------------+------------+-------------",
-		" column1-10 | column2-10 | column3-10  ",
+		" h1         | h2         | h3         ",
+		"------------+------------+------------",
+		" column1-10 | column2-10 | column3-10 ",
 		"",
 	}
 

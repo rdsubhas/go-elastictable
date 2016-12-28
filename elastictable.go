@@ -80,6 +80,8 @@ func (e *ElasticTable) optimizedWidths() ([]int) {
 
 	if minTot > termWidth {
 		return e.mapWidths(func(col ElasticCol) int { return col.min })
+	} else if maxTot < termWidth {
+		return e.mapWidths(func(col ElasticCol) int { return col.max })
 	}
 
 	OUTER:
