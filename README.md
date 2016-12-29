@@ -20,12 +20,12 @@ This library optimizes for **visual balance** by doing the following:
     | as closely as possible |
     ```
 
-- Balance row heights so that rows have some visual rhythm:
+- Balance row heights:
     ```
     # don't:
     | COL-1       | COL-2       | COL-3       |
     +-------------+-------------+-------------+
-    | small       | small       | really big  |
+    | small col   | small col   | really big  |
     |             |             | column that |
     |             |             | spans many  |
     |             |             | rows        |
@@ -34,7 +34,7 @@ This library optimizes for **visual balance** by doing the following:
     | COL-1 | COL-2 | COL-3                   |
     +-------+-------+-------------------------+
     | small | small | really big column that  |
-    |       |       | spans many rows         |
+    | col   | col   | spans many rows         |
     ```
 
 - Number of lines depends on wrapping behavior and is hard to predict in advance. So instead of fully computing expensive re-wraps for every pass, it rather just guesses the number of lines using simple rune widths. This works well in most cases, except there will be some trade-offs in certain scenarios.
