@@ -1,8 +1,8 @@
 package elastictable
 
 import (
-	"github.com/tgulacsi/wrap"
 	"github.com/mattn/go-runewidth"
+	"github.com/tgulacsi/wrap"
 	"strings"
 )
 

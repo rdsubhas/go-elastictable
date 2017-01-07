@@ -1,28 +1,28 @@
 package elastictable
 
 import (
-	"github.com/stretchr/testify/assert"
-	"testing"
-	"strings"
 	"bytes"
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"os"
+	"strings"
+	"testing"
 )
 
 var dummy_headers = []string{"h1", "h2", "h3"}
 
 var widthTests = []struct {
-	term int
-	given []int
+	term     int
+	given    []int
 	expected []int
 }{
-	{ 20, []int{5,10,15}, []int{3,3,3} },
-	{ 40, []int{10,10,10}, []int{10,10,10} },
-	{ 50, []int{10,10,20}, []int{10,10,20} },
-	{ 60, []int{10,25,70}, []int{10,14,26} },
-	{ 60, []int{10,70,25}, []int{10,26,14} },
-	{ 60, []int{70,25,10}, []int{26,14,10} },
-	{ 100, []int{50,50,50}, []int{30,30,30} },
+	{20, []int{5, 10, 15}, []int{3, 3, 3}},
+	{40, []int{10, 10, 10}, []int{10, 10, 10}},
+	{50, []int{10, 10, 20}, []int{10, 10, 20}},
+	{60, []int{10, 25, 70}, []int{10, 14, 26}},
+	{60, []int{10, 70, 25}, []int{10, 26, 14}},
+	{60, []int{70, 25, 10}, []int{26, 14, 10}},
+	{100, []int{50, 50, 50}, []int{30, 30, 30}},
 }
 
 func TestOptimizedWidths(t *testing.T) {
