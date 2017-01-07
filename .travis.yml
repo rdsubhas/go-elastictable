@@ -8,7 +8,7 @@ install:
 - godep restore -v
 script:
 - gofmt -d -s -e . 2>&1 | tee -a fmt.out
-- ! test -s fmt.out
+- test ! -s fmt.out
 - golint -set_exit_status .
 - go test ./...
 notifications:

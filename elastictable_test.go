@@ -27,13 +27,13 @@ var widthTests = []struct {
 
 func TestOptimizedWidths(t *testing.T) {
 	for _, tt := range widthTests {
-		os.Setenv(ENV_TERM_WIDTH, fmt.Sprintf("%v", tt.term))
+		os.Setenv(envTermWidth, fmt.Sprintf("%v", tt.term))
 		et := NewElasticTable(dummyHeaders)
 		et.AddRow(dummyRow(tt.given...))
 		actual := et.optimizedWidths()
 		assert.Equal(t, tt.expected, actual)
 	}
-	os.Setenv(ENV_TERM_WIDTH, "")
+	os.Setenv(envTermWidth, "")
 }
 
 func TestTableOutput(t *testing.T) {
@@ -45,7 +45,7 @@ func TestTableOutput(t *testing.T) {
 		"",
 	}
 
-	os.Setenv(ENV_TERM_WIDTH, "40")
+	os.Setenv(envTermWidth, "40")
 	buf := new(bytes.Buffer)
 	et := NewElasticTable(dummyHeaders)
 	et.AddRow(given)
@@ -66,7 +66,7 @@ func TestWrapping(t *testing.T) {
 		"",
 	}
 
-	os.Setenv(ENV_TERM_WIDTH, "40")
+	os.Setenv(envTermWidth, "40")
 	buf := new(bytes.Buffer)
 	et := NewElasticTable(dummyHeaders)
 	et.AddRow(given)
