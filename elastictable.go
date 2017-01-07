@@ -9,12 +9,12 @@ import (
 	"strings"
 )
 
-const PADDING = " "
-const BORDER = "|"
-const DIVIDER = "-"
-const DIVIDER_BORDER = "+"
-const DIVIDER_PADDING = "-"
-const MARGIN = len(PADDING) + len(PADDING) + len(BORDER)
+const defaultPadding = " "
+const defaultBorder = "|"
+const defaultDivider = "-"
+const defaultDividerBorder = "+"
+const defaultDividerPadding = "-"
+const defaultMargin = 2*len(defaultPadding) + len(defaultBorder)
 
 type elasticCol struct {
 	index  int
@@ -24,13 +24,14 @@ type elasticCol struct {
 	height int
 }
 
+// ElasticTable - struct that is returned
 type ElasticTable struct {
 	cols   []elasticCol
 	header []string
 	rows   [][]string
 }
 
-// Creates a new ElasticTable with given headers
+// NewElasticTable - creates a new ElasticTable with given headers
 func NewElasticTable(header []string) *ElasticTable {
 	e := &ElasticTable{
 		header: header,
@@ -47,7 +48,7 @@ func NewElasticTable(header []string) *ElasticTable {
 	return e
 }
 
-// Adds a row
+// AddRow - Adds a row
 func (e *ElasticTable) AddRow(row []string) {
 	e.rows = append(e.rows, row)
 	for i, v := range row {
@@ -61,17 +62,17 @@ func (e *ElasticTable) AddRow(row []string) {
 	}
 }
 
-// Prints formatted table to the given writer
+// Render - Prints formatted table to the given writer
 func (e *ElasticTable) Render(out io.Writer) {
 	widths := e.optimizedWidths()
-	divider := make([]string, len(widths))
+	dividers := make([]string, len(widths))
 	for i, v := range widths {
-		divider[i] = strings.Repeat(DIVIDER, v)
+		dividers[i] = strings.Repeat(defaultDivider, v)
 	}
-	printRow(out, e.header, widths, BORDER, PADDING)
-	printRow(out, divider, widths, DIVIDER_BORDER, DIVIDER_PADDING)
+	printRow(out, e.header, widths, defaultBorder, defaultPadding)
+	printRow(out, dividers, widths, defaultDividerBorder, defaultDividerPadding)
 	for _, row := range e.rows {
-		printRow(out, row, widths, BORDER, PADDING)
+		printRow(out, row, widths, defaultBorder, defaultPadding)
 	}
 }
 
@@ -85,7 +86,7 @@ func (e *ElasticTable) mapWidths(f func(col elasticCol) int) []int {
 
 func (e *ElasticTable) optimizedWidths() []int {
 	num := len(e.cols)
-	termWidth := termWidth() - (num * MARGIN)
+	termWidth := termWidth() - (num * defaultMargin)
 	sort.Sort(elasticSortMax(e.cols))
 
 	minTot, maxTot := 0, 0
