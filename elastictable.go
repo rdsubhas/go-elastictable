@@ -94,15 +94,15 @@ func (e *ElasticTable) optimizedWidths() ([]int) {
 		maxTot = maxTot + v.width
 	}
 
-	if minTot > termWidth {
+	if minTot >= termWidth {
 		return e.mapWidths(func(col elasticCol) int { return col.min })
-	} else if maxTot < termWidth {
+	} else if maxTot <= termWidth {
 		return e.mapWidths(func(col elasticCol) int { return col.max })
 	}
 
 	OUTER:
 	for {
-		if maxTot < termWidth {
+		if maxTot <= termWidth {
 			break
 		}
 
@@ -121,12 +121,10 @@ func (e *ElasticTable) optimizedWidths() ([]int) {
 		break
 	}
 
-	if balance := termWidth - maxTot; balance > 0 {
-		// distribute remaining whitespace to largest column
-		e.cols[0].width = e.cols[0].width + balance
-	}
-
-	return e.mapWidths(func(col elasticCol) int { return col.width })
+	return e.mapWidths(func(col elasticCol) int {
+		// distribute remaining space (negative or positive ratio)
+		return col.width + int(math.Floor(float64(termWidth - maxTot) * float64(col.width) / float64(maxTot)))
+	})
 }
 
 type elasticSortMax []elasticCol
