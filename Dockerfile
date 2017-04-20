@@ -1,4 +1,4 @@
-FROM golang:1.7
+FROM golang:1.8
 
 WORKDIR /go/src/github.com/rdsubhas/go-elastictable
 COPY Godeps /go/src/github.com/rdsubhas/go-elastictable/Godeps
