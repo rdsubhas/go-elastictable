@@ -2,14 +2,10 @@ language: go
 go_import_path: github.com/rdsubhas/go-elastictable
 go:
 - 1.13
-install:
-- go get -u -v github.com/golang/lint/golint
-- go get -u -v github.com/tools/godep
-- godep restore -v
 script:
 - gofmt -d -s -e . 2>&1 | tee -a fmt.out
 - test ! -s fmt.out
-- go run golang.org/x/lint -set_exit_status .
+- go run golang.org/x/lint/golint -set_exit_status .
 - go test ./...
 notifications:
   email: false
