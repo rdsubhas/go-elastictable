@@ -1,9 +1,10 @@
 package elastictable
 
 import (
-	"github.com/tgulacsi/wrap"
 	"strings"
 	"unicode/utf8"
+
+	"github.com/eidolon/wordwrap"
 )
 
 func runeWidth(str string) int {
@@ -11,5 +12,6 @@ func runeWidth(str string) int {
 }
 
 func wrapString(str string, max int) []string {
-	return strings.Split(wrap.String(str, uint(max)), "\n")
+	wrapper := wordwrap.Wrapper(max, true)
+	return strings.Split(wrapper(str), "\n")
 }

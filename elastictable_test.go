@@ -3,10 +3,11 @@ package elastictable
 import (
 	"bytes"
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"os"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 var dummyHeaders = []string{"h1", "h2", "h3"}
